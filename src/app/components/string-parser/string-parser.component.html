@@ -1,0 +1,57 @@
+
+  <h1 class="text-dark">Your string:</h1>
+
+  <input (input)="onStringChange()" type="text" class="form-control" id="string" [(ngModel)]="rawString">
+
+<hr>
+
+  <h2>Your parameters:</h2>
+  <div class="row">
+    <div *ngFor="let parameter of stringVariables" class="col-3">
+      <div class="card mb-3">
+        <div class="card-header">{{parameter.literal}}</div>
+        <div class="card-body">
+
+          <div class="input-group mb-3">
+
+            <div class="input-group-prepend">
+              <span class="input-group-text">Type</span>
+            </div>
+
+            <select class="form-control" [(ngModel)]="parameter.type" (input)="clearValue(parameter)">
+              <option value="string">String</option>
+              <option value="int">Number</option>
+              <option value="bool">Boolean</option>
+            </select>
+
+          </div>
+
+          <label for="value">Value:</label>
+          <div class="input-group">
+
+            <div *ngIf="parameter.type == 'string'" class="input-group-prepend">
+              <span class="input-group-text">"</span>
+            </div>
+
+            <input type="text" class="form-control" id="value" [(ngModel)]="parameter.value" (input)="updateParsedString()">
+
+            <div *ngIf="parameter.type == 'string'" class="input-group-append">
+              <span class="input-group-text">"</span>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <h5 *ngIf="rawString === ''" class="text-warning">Your string is empty</h5>
+  <h5 *ngIf="rawString !== '' && stringVariables.length <= 0" class="text-danger">No parameters found</h5>
+
+<hr>
+
+<h1 class="text-primary">Parsed String:</h1>
+<pre #text class="bg-dark text-light p-3" style="white-space: pre-wrap;">{{convertedString}}</pre>
+
+
