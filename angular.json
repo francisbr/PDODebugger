@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "SQLDebugger": {
+    "PDODebugger": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -56,18 +56,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "SQLDebugger:build"
+            "browserTarget": "PDODebugger:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "SQLDebugger:build:production"
+              "browserTarget": "PDODebugger:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "SQLDebugger:build"
+            "browserTarget": "PDODebugger:build"
           }
         },
         "test": {
@@ -109,11 +109,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "SQLDebugger:serve"
+            "devServerTarget": "PDODebugger:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "SQLDebugger:serve:production"
+              "devServerTarget": "PDODebugger:serve:production"
             }
           }
         },
